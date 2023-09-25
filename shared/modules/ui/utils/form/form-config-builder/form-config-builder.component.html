@@ -1,0 +1,60 @@
+<ng-container *ngFor="let entries of formConfigEntries; trackBy: trackBy">
+    <ng-container [ngSwitch]="entries[1].type">
+      <ng-container *ngSwitchCase="'text'">
+        <text-input
+          [formControl]="getControlByName(entries[0])!"
+          [hint]="entries[1].typeConfig?.hint"
+          [label]="entries[1].typeConfig?.label"
+          [placeholder]="entries[1].typeConfig?.placeholder"
+        />
+      </ng-container>
+      <ng-container *ngSwitchCase="'password'">
+        <text-input
+          [formControl]="getControlByName(entries[0])!"
+          [hint]="entries[1].typeConfig?.hint"
+          [label]="entries[1].typeConfig?.label"
+          [placeholder]="entries[1].typeConfig?.placeholder"
+          type="password"
+        />
+      </ng-container>
+      <ng-container *ngSwitchCase="'file'">
+        TODO
+        <!--TODO-->
+      </ng-container>
+      <ng-container *ngSwitchCase="'checkbox'">
+        TODO
+        <!--TODO-->
+      </ng-container>
+      <ng-container *ngSwitchCase="'select'">
+        <items-select
+          [formControl]="getControlByName(entries[0])!"
+          [hint]="entries[1].typeConfig?.hint"
+          [label]="entries[1].typeConfig?.label"
+          [placeholder]="entries[1].typeConfig?.placeholder"
+          [items]="entries[1].typeConfig?.items ?? []"
+        />
+      </ng-container>
+      <ng-container *ngSwitchCase="'searchable_select'">
+        <searchable-select
+          [formControl]="getControlByName(entries[0])!"
+          [hint]="entries[1].typeConfig?.hint"
+          [label]="entries[1].typeConfig?.label"
+          [placeholder]="entries[1].typeConfig?.placeholder"
+          [items]="entries[1].typeConfig?.items ?? []"
+        />
+      </ng-container>
+      <ng-container *ngSwitchCase="'autocomplete_text'">
+        <autocomplete-text
+          [formControl]="getControlByName(entries[0])!"
+          [hint]="entries[1].typeConfig?.hint"
+          [label]="entries[1].typeConfig?.label"
+          [placeholder]="entries[1].typeConfig?.placeholder"
+          [items]="entries[1].typeConfig?.items ?? []"
+        />
+      </ng-container>
+      <ng-container *ngSwitchDefault>
+        TODO
+        <!--TODO-->
+      </ng-container>
+    </ng-container>
+</ng-container>

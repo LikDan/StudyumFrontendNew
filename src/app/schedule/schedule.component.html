@@ -1,0 +1,11 @@
+<schedule-header />
+<h-divider />
+<ng-container *ngIf="schedule$ | async else plug">
+  <ng-container *ngIf="!plugType() else plug">
+    <app-base-schedule />
+  </ng-container>
+</ng-container>
+
+<ng-template #plug>
+  <skeleton-plug *ngIf="plugType() as plugType" [plugComponent]="SchedulePlugComponent" [type]="plugType" />
+</ng-template>
